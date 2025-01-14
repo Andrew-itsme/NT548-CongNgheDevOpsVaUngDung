@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+    commands:
+      - pip install cfn-lint
+      - pip install taskcat
+  pre_build:
+    commands:
+      - echo "Linting CloudFormation template"
+      - cfn-lint template.yaml 
+  build:
+    commands:
+      - echo "Testing CloudFormation template with Taskcat"
+      - taskcat test run 
+
+artifacts:
+  files:
+    - template.yaml

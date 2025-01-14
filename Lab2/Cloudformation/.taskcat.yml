@@ -1,0 +1,10 @@
+project:
+  name: cloudformation-template-test
+  regions:
+    - us-east-1
+  s3_bucket: group21-taskcat
+tests:
+  default:
+    template: ./template.yaml
+    parameters:
+      KeyName: ssh_rsa_keypair
